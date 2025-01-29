@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Songs</title>
+    <style>
+        body {
+            font-family: monospace;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF4F2;
+            color: #2e2528;
+        }
+        header {
+            background-color: #EFCFD4;
+            color:  #332129;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+        background-color: #F5DCE0; 
+        padding: 10px 0; 
+        display: flex; 
+        justify-content: center; 
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    }
+        nav a {
+        margin: 0 15px; 
+        color: rgb(37, 37, 37); 
+        text-decoration: none; 
+        padding: 10px 15px; 
+        border-radius: 5px; 
+        transition: background-color 0.3s; 
+        }
+        nav a:hover, nav a.active {
+        background-color: #EFCFD4;  
+        }
+        .container {
+            width: 80%;
+            margin: 30px auto;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .song {
+            display: flex;
+            align-items: center;
+            background: #e6e6e6;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .song img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+        .song div {
+            flex: 1;
+        }
+        .song h3 {
+            margin: 0 0 5px;
+            font-size: 18px;
+        }
+        audio {
+            margin-left: auto;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>⋆｡‧˚ʚ🍓ɞ˚‧｡⋆ Explore Songs ⋆｡‧˚ʚ🍒ɞ˚‧｡⋆</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="genres.html">Genres</a>
+    <a href="discover.html">Discover</a>
+    <a href="artists.html">Artists</a>
+    <a href="songs.html"class="active">Songs</a>
+    <a href="learn-more.html">Learn More</a>
+    <a href="review.html">Reviews</a>
+</nav>
+
+<div class="container">
+    
+    <!-- Top 10 Most Popular Songs Section -->
+    <section class="section">
+        <h2>Top 10 Most Popular Songs in the Country</h2>
+        <div class="song">
+            <img src="https://via.placeholder.com/100" alt="Song Cover 1">
+            <div>
+                <h3>Popular Song 1 - Artist A</h3>
+                <audio controls>
+                    <source src="popular1.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <!-- Repeat song block for up to 10 songs -->
+    </section>
+
+    <!-- Recommended Songs Section -->
+    <section class="section">
+        <h2>Recommended Songs</h2>
+        <div class="song">
+            <img src="https://via.placeholder.com/100" alt="Song Cover 2">
+            <div>
+                <h3>Recommended Song 1 - Artist B</h3>
+                <audio controls>
+                    <source src="recommended1.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <!-- Add more recommended songs -->
+    </section>
+
+    <!-- New Releases Section -->
+    <section class="section">
+        <h2>New Releases</h2>
+        <div class="song">
+            <img src="https://via.placeholder.com/100" alt="Song Cover 3">
+            <div>
+                <h3>New Release 1 - Artist C</h3>
+                <audio controls>
+                    <source src="newrelease1.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <!-- Add more new releases -->
+    </section>
+
+    <!-- Underrated Gems Section -->
+    <section class="section">
+        <h2>Underrated Gems</h2>
+        <div class="song">
+            <img src="https://via.placeholder.com/100" alt="Song Cover 4">
+            <div>
+                <h3>Hidden Gem 1 - Artist D</h3>
+                <audio controls>
+                    <source src="gem1.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <!-- Add more underrated gems -->
+    </section>
+
+    <!-- Top Viral Hits Section -->
+    <section class="section">
+        <h2>Top Viral Hits</h2>
+        <div class="song">
+            <img src="https://via.placeholder.com/100" alt="Song Cover 5">
+            <div>
+                <h3>Viral Song 1 - Artist E</h3>
+                <audio controls>
+                    <source src="viral1.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <!-- Add more viral hits -->
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2024 Discover New Music. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

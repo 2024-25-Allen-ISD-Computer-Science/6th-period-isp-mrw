@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Reviews</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #FFF4F2;
+            color: #2e2528;
+            font-family: monospace;
+        }
+        header {
+            background-color: #EFCFD4;
+            color: #332129;
+            padding: 20px;
+            text-align: center;
+        }
+        nav a {
+        margin: 0 15px; 
+        color: rgb(37, 37, 37); 
+        text-decoration: none; 
+        padding: 10px 15px; 
+        border-radius: 5px; 
+        transition: background-color 0.3s; 
+        }
+        nav a:hover, nav a.active {
+        background-color: #EFCFD4;  
+        }
+        .container {
+            width: 80%;
+            margin: 30px auto;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .review-container {
+            max-width: 500px;
+            margin: auto;
+        }
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+        }
+        .star-rating input {
+            display: none;
+        }
+        .star-rating label {
+            font-size: 30px;
+            color: gray;
+            cursor: pointer;
+        }
+        .star-rating input:checked ~ label,
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+            color: gold;
+        }
+        .review-list {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .review-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+        }
+        .rating-display {
+            color: gold;
+            font-size: 18px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>⋆｡‧˚ʚ🍓ɞ˚‧｡⋆ Discover New Music ⋆｡‧˚ʚ🍒ɞ˚‧｡⋆</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="genres.html">Genres</a>
+    <a href="discover.html">Discover</a>
+    <a href="artists.html">Artists</a>
+    <a href="songs.html">Songs</a>
+    <a href="learn-more.html">Learn More</a>
+    <a href="review.html"class="active">Reviews</a>
+</nav>
+
+<div class="container">
+    <div class="review-container">
+        <h2>Rate Our Website</h2>
+
+        <div class="star-rating">
+            <input type="radio" name="rating" id="star5" value="5"><label for="star5">★</label>
+            <input type="radio" name="rating" id="star4" value="4"><label for="star4">★</label>
+            <input type="radio" name="rating" id="star3" value="3"><label for="star3">★</label>
+            <input type="radio" name="rating" id="star2" value="2"><label for="star2">★</label>
+            <input type="radio" name="rating" id="star1" value="1"><label for="star1">★</label>
+        </div>
+
+        <textarea id="reviewText" placeholder="Write your review here..." rows="4" cols="50"></textarea><br><br>
+        <button onclick="submitReview()">Submit Review</button>
+
+        <h2>What Users Say</h2>
+        <div class="review-list" id="reviewList"></div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Discover New Music | All rights reserved.</p>
+</footer>
+
+<script>
+    function submitReview() {
+        let rating = document.querySelector('input[name="rating"]:checked')?.value;
+        let reviewText = document.getElementById("reviewText").value;
+
+        if (!rating || !reviewText) {
+            alert("Please select a rating and write a review.");
+            return;
+        }
+
+        let reviews = JSON.parse(localStorage.getItem("websiteReviews")) || [];
+        reviews.push({ rating, reviewText });
+        localStorage.setItem("websiteReviews", JSON.stringify(reviews));
+
+        displayReviews();
+        document.getElementById("reviewText").value = "";
+        document.querySelector('input[name="rating"]:checked').checked = false;
+    }
+
+    function displayReviews() {
+        let reviews = JSON.parse(localStorage.getItem("websiteReviews")) || [];
+        let reviewList = document.getElementById("reviewList");
+        reviewList.innerHTML = "";
+
+        reviews.forEach(review => {
+            let stars = "★".repeat(review.rating) + "☆".repeat(5 - review.rating);
+            reviewList.innerHTML += `<div class="review-item">
+                <span class="rating-display">${stars}</span><br>
+                <p>${review.reviewText}</p>
+            </div>`;
+        });
+    }
+
+    window.onload = displayReviews;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover New Music</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #FFF4F2;
+            color: #2e2528;
+            font-family: monospace;
+        }
+        header {
+            background-color: #EFCFD4;
+            color:  #332129;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            text-align: center;
+            margin: 10px 0;
+        }
+        nav a {
+            margin: 0 15px; 
+            color: rgb(37, 37, 37); 
+            text-decoration: none; 
+            padding: 10px 15px; 
+            border-radius: 5px; 
+            transition: background-color 0.3s; 
+        }
+        nav a:hover, nav a.active {
+            background-color: #EFCFD4;  
+        }
+        .container {
+            width: 80%;
+            margin: 30px auto;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .song {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .song img {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        audio {
+            margin-left: auto;
+        }
+        .select-box {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .select-box select {
+            padding: 10px;
+            font-size: 16px;
+        }
+        .artist-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .artist-list div {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>⋆｡‧˚ʚ🍓ɞ˚‧｡⋆ Discover New Music ⋆｡‧˚ʚ🍒ɞ˚‧｡⋆ </h1>
+</header>
+
+<nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="genres.html">Genres</a>
+    <a href="discover.html">Discover</a>
+    <a href="artists.html">Artists</a>
+    <a href="songs.html">Songs</a>
+    <a href="learn-more.html">Learn More</a>
+    <a href="review.html">Reviews</a>
+</nav>
+
+<div class="container">
+
+    <!-- Genre and Artist Selection Section -->
+    <section id="select-genre-artist" class="section">
+        <h2>Find Your Top Artists</h2>
+        <div class="select-box">
+            <label for="genre">Choose a Genre:</label>
+            <select id="genre" name="genre">
+                <option value="pop">Pop</option>
+                <option value="rock">Rock</option>
+                <option value="hiphop">Hip-Hop</option>
+                <option value="electronic">Electronic</option>
+                <option value="jazz">Jazz</option>
+            </select>
+        </div>
+        <div class="select-box">
+            <label for="type">Choose Recommendation Type:</label>
+            <select id="type" name="type">
+                <option value="mainstream">Mainstream</option>
+                <option value="creator">Creator Picked</option>
+            </select>
+        </div>
+        <button onclick="showTopArtists()">Get Top 3 Artists</button>
+
+        <div id="artist-list" class="artist-list">
+            <!-- Artists will be displayed here based on the selections -->
+        </div>
+    </section>
+
+    <!-- Top 3 Recommended Songs Section -->
+    <section id="recommended-songs" class="section">
+        <h2>Top 3 Recommended Songs</h2>
+        <div class="song">
+            <img src="https://images.squarespace-cdn.com/content/v1/5b0dd7581aef1d319395b854/24d7ee6b-838a-42d9-920e-a1886e2e3377/unnamed+%2850%29.jpg" alt="Song Cover 1">
+            <div>
+                <h3>Beaches - Beabadoobee</h3>
+                <audio controls>
+                    <source src="Beaches.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <div class="song">
+            <img src="https://hips.hearstapps.com/hmg-prod/images/gatsukgxoaabz9l-671b1a0339014.jpeg?crop=1xw:1xh;center,top&resize=1120:*" alt="Song Cover 2">
+            <div>
+                <h3>Disease - Lady Gaga</h3>
+                <audio controls>
+                    <source src="gagauadio.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <div class="song">
+            <img src="https://colorcodedlyrics.com/wp-content/uploads/2024/10/kiss-of-life-lose-yourself.jpeg" alt="Song Cover 3">
+            <div>
+                <h3>Igloo - Kiss of Life</h3>
+                <audio controls>
+                    <source src="igloo.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top 3 Most Popular Songs Section -->
+    <section id="popular-songs" class="section">
+        <h2>Top 3 Most Popular Songs</h2>
+        <div class="song">
+            <img src="https://via.placeholder.com/100" alt="Song Cover 4">
+            <div>
+                <h3>Song Title 4 - Artist D</h3>
+                <audio controls>
+                    <source src="song4.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <div class="song">
+            <img src="https://via.placeholder.com/100" alt="Song Cover 5">
+            <div>
+                <h3>Song Title 5 - Artist E</h3>
+                <audio controls>
+                    <source src="song5.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <div class="song">
+            <img src="https://via.placeholder.com/100" alt="Song Cover 6">
+            <div>
+                <h3>Song Title 6 - Artist F</h3>
+                <audio controls>
+                    <source src="song6.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2024 Discover New Music. All rights reserved.</p>
+</footer>
+
+<script>
+    // Function to display top 3 artists based on genre and type selection
+    function showTopArtists() {
+        const genre = document.getElementById("genre").value;
+        const type = document.getElementById("type").value;
+
+        const artists = {
+            pop: {
+                mainstream: ["Ariana Grande", "Ed Sheeran", "Billie Eilish"],
+                creator: ["Clairo", "Beabadoobee", "Phoebe Bridgers"]
+            },
+            rock: {
+                mainstream: ["Imagine Dragons", "Foo Fighters", "Queen"],
+                creator: ["Arctic Monkeys", "Tame Impala", "The Strokes"]
+            },
+            hiphop: {
+                mainstream: ["Drake", "Kendrick Lamar", "Travis Scott"],
+                creator: ["JID", "IDK", "Vince Staples"]
+            },
+            electronic: {
+                mainstream: ["Calvin Harris", "Marshmello", "Zedd"],
+                creator: ["Porter Robinson", "Odesza", "Madeon"]
+            },
+            jazz: {
+                mainstream: ["John Coltrane", "Miles Davis", "Diana Krall"],
+                creator: ["Kamasi Washington", "Esperanza Spalding", "Robert Glasper"]
+            }
+        };
+
+        const selectedArtists = artists[genre][type];
+        
+        // Clear any previous list
+        const artistListDiv = document.getElementById("artist-list");
+        artistListDiv.innerHTML = "";
+
+        // Display the top 3 artists
+        selectedArtists.forEach(artist => {
+            const artistDiv = document.createElement("div");
+            artistDiv.textContent = artist;
+            artistListDiv.appendChild(artistDiv);
+        });
+    }
+</script>
+
+</body>
+</html>
+
