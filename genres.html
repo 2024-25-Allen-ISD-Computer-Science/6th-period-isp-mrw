@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Genres</title>
+    <style>
+        body {
+            font-family: monospace;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF4F2;
+            color: #2e2528;
+
+        }
+        header {
+            background-color: #EFCFD4;
+            color:  #332129;
+            padding: 20px;
+            text-align: center;
+        }
+        nav a {
+        margin: 0 15px; 
+        color: rgb(37, 37, 37); 
+        text-decoration: none; 
+        padding: 10px 15px; 
+        border-radius: 5px; 
+        transition: background-color 0.3s; 
+        }
+        nav a:hover, nav a.active {
+        background-color: #EFCFD4;  
+        }
+        .container {
+            width: 80%;
+            margin: 30px auto;
+        }
+        .genre-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: #332129;
+            margin-bottom: 15px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>⋆｡‧˚ʚ🍓ɞ˚‧｡⋆ Music Genres ⋆｡‧˚ʚ🍒ɞ˚‧｡⋆</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="genres.html"class="active">Genres</a>
+    <a href="discover.html">Discover</a>
+    <a href="artists.html">Artists</a>
+    <a href="songs.html">Songs</a>
+    <a href="learn-more.html">Learn More</a>
+    <a href="review.html">Reviews</a>
+</nav>
+
+<div class="container">
+
+    <div class="genre-section">
+        <h2>Pop</h2>
+        <h3>Popular Songs:</h3>
+        <ul>
+            <li>Espresso - Sabrina Carpenter</li>
+            <li>Not Like Us - Kendrick Lamar</li>
+            <li>Good Luck Babe - Chappell Roan</li>
+        </ul>
+        <h3>Featured Artists:</h3>
+        <ul id="pop-artists"></ul>
+    </div>
+
+    <div class="genre-section">
+        <h2>Rock</h2>
+        <h3>Popular Songs:</h3>
+        <ul>
+            <li>Happiness Bastards - The Black Crowes</li>
+            <li>Wall of Eyes - The Smile</li>
+            <li>Invincible Shield - Judas Priest</li>
+        </ul>
+        <h3>Featured Artists:</h3>
+        <ul id="rock-artists"></ul>
+    </div>
+
+    <div class="genre-section">
+        <h2>Hip-Hop</h2>
+        <h3>Popular Songs:</h3>
+        <ul>
+            <li>Song Title 7 - Artist G</li>
+            <li>Song Title 8 - Artist H</li>
+            <li>Song Title 9 - Artist I</li>
+        </ul>
+        <h3>Featured Artists:</h3>
+        <ul id="hiphop-artists"></ul>
+    </div>
+
+    <div class="genre-section">
+        <h2>Jazz</h2>
+        <h3>Popular Songs:</h3>
+        <ul>
+            <li>Song Title 10 - Artist J</li>
+            <li>Song Title 11 - Artist K</li>
+            <li>Song Title 12 - Artist L</li>
+        </ul>
+        <h3>Featured Artists:</h3>
+        <ul id="jazz-artists"></ul>
+    </div>
+
+    <div class="genre-section">
+        <h2>Classical</h2>
+        <h3>Popular Songs:</h3>
+        <ul>
+            <li>Song Title 13 - Artist M</li>
+            <li>Song Title 14 - Artist N</li>
+            <li>Song Title 15 - Artist O</li>
+        </ul>
+        <h3>Featured Artists:</h3>
+        <ul id="classical-artists"></ul>
+    </div>
+
+    <div class="genre-section">
+        <h2>K-Pop</h2>
+        <h3>Popular Songs:</h3>
+        <ul>
+            <li>Igloo - Kiss of Life</li>
+            <li>Chk Chk Boom - Stray Kids</li>
+            <li>Work - Ateez</li>
+        </ul>
+        <h3>Featured Artists:</h3>
+        <ul id="kpop-artists"></ul>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2024 Discover New Music. All rights reserved.</p>
+</footer>
+</body>
+</html>
