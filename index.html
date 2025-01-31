@@ -6,11 +6,11 @@
     <title>Discover New Music</title>
     <style>
         body {
+            font-family: monospace;
             margin: 0;
             padding: 0;
             background-color: #FFF4F2;
             color: #2e2528;
-            font-family: monospace;
         }
         header {
             background-color: #EFCFD4;
@@ -19,19 +19,22 @@
             text-align: center;
         }
         nav {
-            text-align: center;
-            margin: 10px 0;
+        background-color: #F5DCE0; 
+        padding: 10px 0; 
+        display: flex; 
+        justify-content: center; 
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
         }
         nav a {
-            margin: 0 15px; 
-            color: rgb(37, 37, 37); 
-            text-decoration: none; 
-            padding: 10px 15px; 
-            border-radius: 5px; 
-            transition: background-color 0.3s; 
+        margin: 0 15px; 
+        color: rgb(37, 37, 37); 
+        text-decoration: none; 
+        padding: 10px 15px; 
+        border-radius: 5px; 
+        transition: background-color 0.3s; 
         }
         nav a:hover, nav a.active {
-            background-color: #EFCFD4;  
+        background-color: #EFCFD4;  
         }
         .container {
             width: 80%;
@@ -39,33 +42,33 @@
         }
         .section {
             background: white;
-            padding: 20px;
-            margin: 20px 0;
+            color:  #332129;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        .song {
-            display: flex;
-            align-items: center;
+            padding: 20px;
+            box-shadow: 0 4px 8px #EFCFD4;
             margin-bottom: 20px;
         }
-        .song img {
-            width: 100px;
-            height: 100px;
-            margin-right: 20px;
-            border-radius: 5px;
+        .section h2 {
+            margin-top: 0;
+            color: #332129;
+            border-bottom: 2px solid #EFCFD4;
+            padding-bottom: 5px;
+        }
+        .section ul {
+            padding-left: 20px;
+            line-height: 1.6;
         }
         footer {
-            text-align: center;
-            padding: 20px;
             background-color: #333;
             color: white;
+            text-align: center;
+            padding: 20px;
             position: relative;
             bottom: 0;
             width: 100%;
         }
         audio {
-            margin-left: auto;
+            margin-top: 10px;
         }
         .select-box {
             margin: 20px 0;
@@ -82,8 +85,21 @@
             margin-top: 20px;
         }
         .artist-list div {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
+        .song img {
+        width: 70px;  
+        height: 70px; 
+        border-radius: 5px; 
+        display: block; 
+        margin-bottom: 10px;
+        }
+
+        .artist-list img {
+        width: 50px;  
+        height: auto;
+        border-radius: 5px;
+    }
     </style>
 </head>
 <body>
@@ -208,44 +224,63 @@
 </footer>
 
 <script>
-    // Function to display top 3 artists based on genre and type selection
     function showTopArtists() {
         const genre = document.getElementById("genre").value;
         const type = document.getElementById("type").value;
 
         const artists = {
             pop: {
-                mainstream: ["Ariana Grande", "Ed Sheeran", "Billie Eilish"],
-                creator: ["Clairo", "Beabadoobee", "Phoebe Bridgers"]
+                mainstream: [
+                    { name: "Ariana Grande", img: "ariana.jpg", audio: "ariana.mp3" },
+                    { name: "Taylor Swift", img: "taylor.jpg", audio: "taylor.mp3" },
+                    { name: "Billie Eilish", img: "billie.jpg", audio: "billie.mp3" }
+                ],
+                creator: [
+                    { name: "Clairo", img: "clairo.jpg", audio: "clairo.mp3" },
+                    { name: "Beabadoobee", img: "beabadoobee.jpg", audio: "beabadoobee.mp3" },
+                    { name: "Lana Del Rey", img: "lana.jpg", audio: "lana.mp3" }
+                ]
             },
             rock: {
-                mainstream: ["Imagine Dragons", "Foo Fighters", "Queen"],
-                creator: ["Arctic Monkeys", "Tame Impala", "The Strokes"]
+                mainstream: [
+                    { name: "Foo Fighters", img: "foo.jpg", audio: "foo.mp3" },
+                    { name: "Queen", img: "queen.jpg", audio: "queen.mp3" },
+                    { name: "Led Zeppelin", img: "led.jpg", audio: "led.mp3" }
+                ],
+                creator: [
+                    { name: "Paramore", img: "paramore.jpg", audio: "paramore.mp3" },
+                    { name: "The Strokes", img: "strokes.jpg", audio: "strokes.mp3" },
+                    { name: "Arctic Monkeys", img: "arctic.jpg", audio: "arctic.mp3" }
+                ]
             },
-            hiphop: {
-                mainstream: ["Drake", "Kendrick Lamar", "Travis Scott"],
-                creator: ["JID", "IDK", "Vince Staples"]
-            },
-            electronic: {
-                mainstream: ["Calvin Harris", "Marshmello", "Zedd"],
-                creator: ["Porter Robinson", "Odesza", "Madeon"]
-            },
-            jazz: {
-                mainstream: ["John Coltrane", "Miles Davis", "Diana Krall"],
-                creator: ["Kamasi Washington", "Esperanza Spalding", "Robert Glasper"]
-            }
         };
 
         const selectedArtists = artists[genre][type];
-        
-        // Clear any previous list
         const artistListDiv = document.getElementById("artist-list");
         artistListDiv.innerHTML = "";
 
-        // Display the top 3 artists
         selectedArtists.forEach(artist => {
             const artistDiv = document.createElement("div");
-            artistDiv.textContent = artist;
+            artistDiv.classList.add("artist");
+
+            const artistImg = document.createElement("img");
+            artistImg.src = artist.img;
+            artistImg.alt = artist.name;
+
+            const artistName = document.createElement("p");
+            artistName.textContent = artist.name;
+
+            const artistAudio = document.createElement("audio");
+            artistAudio.controls = true;
+            const audioSource = document.createElement("source");
+            audioSource.src = artist.audio;
+            audioSource.type = "audio/mpeg";
+            artistAudio.appendChild(audioSource);
+
+            artistDiv.appendChild(artistImg);
+            artistDiv.appendChild(artistName);
+            artistDiv.appendChild(artistAudio);
+
             artistListDiv.appendChild(artistDiv);
         });
     }
@@ -253,4 +288,5 @@
 
 </body>
 </html>
+
 
