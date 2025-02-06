@@ -88,8 +88,8 @@
             margin-bottom: 20px;
         }
         .song img {
-        width: 70px;  
-        height: 70px; 
+        width: 150px;  
+        height: 150px; 
         border-radius: 5px; 
         display: block; 
         margin-bottom: 10px;
@@ -130,8 +130,8 @@
                 <option value="pop">Pop</option>
                 <option value="rock">Rock</option>
                 <option value="hiphop">Hip-Hop</option>
-                <option value="electronic">Electronic</option>
-                <option value="jazz">Jazz</option>
+                <option value="Kpop">Kpop</option>
+                <option value="RnB">RnB</option>
             </select>
         </div>
         <div class="select-box">
@@ -232,29 +232,65 @@
         const artists = {
             pop: {
                 mainstream: [
-                    { name: "Ariana Grande", img: "ariana.jpg", audio: "ariana.mp3" },
-                    { name: "Taylor Swift", img: "taylor.jpg", audio: "taylor.mp3" },
-                    { name: "Billie Eilish", img: "billie.jpg", audio: "billie.mp3" }
+                    { name: "Ariana Grande", img: "https://www.billboard.com/wp-content/uploads/2022/08/Ariana-Grande-the-voice-2021-billboard-1548.jpg?w=1024", audio: "ariana.mp3", description: "placeholder" },
+                    { name: "Taylor Swift", img: "https://static01.nyt.com/images/2022/10/24/arts/24taylor-notebook3/24taylor-notebook3-superJumbo.jpg", audio: "taylor.mp3", description: "placeholder" },
+                    { name: "Billie Eilish", img: "https://assets.vogue.com/photos/609bb445758287e5e091eeed/4:3/w_1999,h_1499,c_limit/Billie-Eilish-Happier-Than-Ever.jpeg", audio: "billie.mp3", description: "placeholder" }
                 ],
                 creator: [
-                    { name: "Clairo", img: "clairo.jpg", audio: "clairo.mp3" },
-                    { name: "Beabadoobee", img: "beabadoobee.jpg", audio: "beabadoobee.mp3" },
-                    { name: "Lana Del Rey", img: "lana.jpg", audio: "lana.mp3" }
+                    { name: "Clairo", img: "https://media.vanityfair.com/photos/66db49d0b2332eb1a8556bdf/1:1/w_2806,h_2806,c_limit/Clairo_Credit_Lucas%20Creighton.jpg", audio: "clairo.mp3", description: "placeholder" },
+                    { name: "Beabadoobee", img: "https://media.pitchfork.com/photos/62c872fc8eca7177fd2b07dc/4:3/w_720,h_540,c_limit/BEABADOOBEE.jpg", audio: "beabadoobee.mp3", description: "placeholder" },
+                    { name: "Lana Del Rey", img: "https://hips.hearstapps.com/hmg-prod/images/singer-lana-del-rey-poses-for-a-portrait-during-a-visit-to-news-photo-1590067847.jpg?crop=0.668xw:1.00xh;0.148xw,0&resize=640:*", audio: "lana.mp3", description: "placeholder" }
                 ]
             },
             rock: {
                 mainstream: [
-                    { name: "Foo Fighters", img: "foo.jpg", audio: "foo.mp3" },
-                    { name: "Queen", img: "queen.jpg", audio: "queen.mp3" },
-                    { name: "Led Zeppelin", img: "led.jpg", audio: "led.mp3" }
+                    { name: "Nirvana", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsjkwVtIJGYHzDypmxvrib5gPBHTGfQEGfNg&s", audio: "foo.mp3", description: "placeholder" },
+                    { name: "The Rolling Stones", img: "https://cdn.britannica.com/41/197341-050-4859B808/The-Rolling-Stones-Bill-Wyman-Keith-Richards-1964.jpg", audio: "queen.mp3", description: "placeholder" },
+                    { name: "AC/DC", img: "https://resources.tidal.com/images/4e22a750/9dea/4f7d/9c70/5ece4fa3b129/750x750.jpg", audio: "led.mp3", description: "placeholder" }
                 ],
                 creator: [
-                    { name: "Paramore", img: "paramore.jpg", audio: "paramore.mp3" },
-                    { name: "The Strokes", img: "strokes.jpg", audio: "strokes.mp3" },
-                    { name: "Arctic Monkeys", img: "arctic.jpg", audio: "arctic.mp3" }
+                    { name: "The Story So Far", img: "https://i.scdn.co/image/ab6761610000e5eb4d8d055d82fc1e5b1c5ecb1d", audio: "paramore.mp3", description: "placeholder" },
+                    { name: "White Reaper", img: "https://i.scdn.co/image/ab6761610000e5eb0b9e56face673e872ccdf2d9", audio: "strokes.mp3", description: "placeholder" },
+                    { name: "A Day To Remember", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8kCtZmRMczVosEv_chINku257nBGWPIXiGg&s", audio: "arctic.mp3", description: "placeholder" }
                 ]
             },
-        };
+            hiphop: {
+                mainstream: [
+                    { name: "Drake", img: "https://www.billboard.com/wp-content/uploads/2025/01/Drake-2019-red-carpet-billboard-pro-1260.jpg?w=942&h=623&crop=1", audio: "drake.mp3", description: "placeholder" },
+                    { name: "Kanye West", img: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Kanye_West_at_the_2009_Tribeca_Film_Festival_%28crop_2%29.jpg", audio: "ye.mp3", description: "placeholder" },
+                    { name: "Tyler, The Creator", img: "https://ca-times.brightspotcdn.com/dims4/default/b1ace64/2147483647/strip/true/crop/1867x2800+1202+0/resize/2000x3000!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fe2%2Fbc%2Fe9a9a7f848bea1d3fd6bf5cf00bc%2Fgettyimages-1236582923.jpg", audio: "snoop.mp3", description: "placeholder" }
+                ],
+                creator: [
+                    { name: "Nicki Minaj", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwhpmZJBIiyl3SlhjnJ-q05ykmAd5g6tZ0vA&s", audio: "paramore.mp3", description: "placeholder" },
+                    { name: "Don Toliver", img: "https://media.gq.com/photos/644038e15daed7b7f1840d38/master/pass/DT_CR_HYPE_1-r1.jpg", audio: "strokes.mp3", description: "placeholder" },
+                    { name: "Kendrick Lamar", img: "https://i8.amplience.net/i/naras/MI0004224402-MN0002709646", audio: "arctic.mp3", description: "placeholder" }
+                ]
+            },
+            Kpop: {
+                mainstream: [
+                    { name: "BTS", img: "https://m.media-amazon.com/images/M/MV5BYzU5NjA3Y2YtY2UwZi00ZDMwLWE5NjAtOTljNTA4NTI4ZjYyXkEyXkFqcGc@._V1_.jpg", audio: "foo.mp3", description: "placeholder" },
+                    { name: "BLACKPINK", img: "https://i.scdn.co/image/ab6761610000e5ebc9690bc711d04b3d4fd4b87c", audio: "queen.mp3" },
+                    { name: "Stray Kids", img: "https://www.rollingstone.co.uk/wp-content/uploads/sites/2/2024/09/sh05_Group_RollingStoneUK_StrayKids-4272-e1726578700988-1024x957.jpg", audio: "led.mp3", description: "placeholder" }
+                ],
+                creator: [
+                    { name: "New Jeans", img: "https://www.coca-cola.com/content/dam/onexp/global/central/offerings/coke-studio/artists/NEW_JEANS_GROUP_01_WORKING_1-1.jpg", audio: "paramore.mp3", description: "placeholder" },
+                    { name: "XG", img: "https://images.squarespace-cdn.com/content/v1/56c346b607eaa09d9189a870/48434d3a-6d77-4410-b826-412efb6f4fbe/143611_XG_MASCARA_ARTISTPHOTO.jpg", audio: "strokes.mp3", description: "placeholder" },
+                    { name: "BIBI", img: "https://www.nme.com/wp-content/uploads/2022/07/BIBI-feel-ghood-music-88rising-250733.jpg", audio: "arctic.mp3", description: "placeholder" }
+                ]
+            },
+            RnB: {
+                mainstream: [
+                    { name: "The Weeknd", img: "https://media.cnn.com/api/v1/images/stellar/prod/230515101146-the-weeknd-121222.jpg?c=16x9&q=h_833,w_1480,c_fill", audio: "foo.mp3", description: "placeholder" },
+                    { name: "Rihanna", img: "https://imageio.forbes.com/specials-images/imageserve/67606f22d9918d6930c26d22/0x0.jpg?format=jpg&crop=1549,1552,x551,y201,safe&height=416&width=416&fit=bounds", audio: "queen.mp3", description: "placeholder" },
+                    { name: "Tory Lanez", img: "https://i.scdn.co/image/ab6761610000e5ebbd5d3e1b363c3e26710661c3", audio: "led.mp3", description: "placeholder" }
+                ],
+                creator: [
+                    { name: "SZA", img: "https://ntvb.tmsimg.com/assets/assets/1027990_v9_bc.jpg", audio: "paramore.mp3", description: "placeholder" },
+                    { name: "PARTYNEXTDOOR", img: "https://yt3.googleusercontent.com/Zo1yDhhGQ5vCyUnpT4ZnlxFEuUOfeSWMPebWOKwWDl3pjLc9CELhqk-Vyu5tKxaJKDWHdjBD=s900-c-k-c0x00ffffff-no-rj", audio: "strokes.mp3", description: "placeholder" },
+                    { name: "Daniel Caesar", img: "https://lh3.googleusercontent.com/innRziTAUZqSUbGCUnh1kpZBrGLj-pJh1IHw0TSZmRpi_8qbsjahUx7ek_UfIFfzjt2gD23O9fqjqLs=w544-h544-p-l90-rj", audio: "arctic.mp3", description: "placeholder" }
+                ]
+            }
+        }
 
         const selectedArtists = artists[genre][type];
         const artistListDiv = document.getElementById("artist-list");
@@ -267,6 +303,9 @@
             const artistImg = document.createElement("img");
             artistImg.src = artist.img;
             artistImg.alt = artist.name;
+            artistImg.style.width = "150px";  // Set width
+            artistImg.style.height = "150px"; // Set height
+            artistImg.style.objectFit = "cover";
 
             const artistName = document.createElement("p");
             artistName.textContent = artist.name;
@@ -278,9 +317,23 @@
             audioSource.type = "audio/mpeg";
             artistAudio.appendChild(audioSource);
 
+            const expandBtn = document.createElement("button");
+            expandBtn.classList.add("expand-btn)");
+            expandBtn.textContent = "Learn More";
+            expandBtn.oneclick = function(){
+                const descriptionDiv = document.getElementById(artist.name + "-description");
+                descriptionDiv.style.display = descriptionDiv.style.display === "none" ? "block" : "none";
+            };
+            const descriptionDiv = document.createElement("div");  
+                descriptionDiv.id = artist.name + "-description";
+                descriptionDiv.classList.add("artist-description");
+                descriptionDiv.innerHTML = `<p>${artist.description}</p><a href="https://www.spotify.com">Listen on Spotify</a>`;
+
             artistDiv.appendChild(artistImg);
             artistDiv.appendChild(artistName);
             artistDiv.appendChild(artistAudio);
+            artistDiv.appendChild(expandBtn);
+            artistDiv.appendChild(descriptionDiv);
 
             artistListDiv.appendChild(artistDiv);
         });
