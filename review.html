@@ -85,6 +85,22 @@
             font-size: 20px;
             color: gold;
         }
+        .date {
+            font-size: 12px;
+            color: gray;
+        }
+        .like-dislike {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .like-dislike button {
+            background-color: #EFCFD4;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -121,6 +137,11 @@
         <option value="2">2 Stars</option>
         <option value="1">1 Star</option>
     </select>
+    <h2>Sort Reviews</h2>
+    <select id="sortOrder" onchange="displayReviews()">
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+    </select>
     <h2>What Users Say</h2>
     <div class="review-list" id="reviewList"></div>
 </div>
@@ -129,8 +150,7 @@
     
     document.querySelectorAll('.star').forEach(star => {
         star.addEventListener('mouseover', function() {
-            let value = this.getAttribute('data-value');
-            highlightStars(value);
+            highlightStars(this.getAttribute('data-value'));
         });
         star.addEventListener('click', function() {
             selectedRating = this.getAttribute('data-value');
@@ -140,7 +160,7 @@
             highlightStars(selectedRating, true);
         });
     });
-    
+
     function highlightStars(value, persist = false) {
         document.querySelectorAll('.star').forEach(star => {
             star.classList.remove('active');
@@ -149,7 +169,7 @@
             }
         });
     }
-    
+
     function submitReview() {
         let reviewText = document.getElementById("reviewText").value.trim();
         if (selectedRating == 0 || !reviewText) {
@@ -157,39 +177,60 @@
             return;
         }
         let reviews = JSON.parse(localStorage.getItem("websiteReviews")) || [];
-        reviews.push({ rating: selectedRating, reviewText });
+        let reviewDate = new Date().toLocaleDateString();
+        reviews.unshift({ rating: selectedRating, reviewText, date: reviewDate, likes: 0, dislikes: 0 });
         localStorage.setItem("websiteReviews", JSON.stringify(reviews));
         displayReviews();
         document.getElementById("reviewText").value = "";
         selectedRating = 0;
         highlightStars(0);
     }
-    
-    function displayReviews(filter = "all") {
+
+    function displayReviews() {
         let reviews = JSON.parse(localStorage.getItem("websiteReviews")) || [];
         let reviewList = document.getElementById("reviewList");
         reviewList.innerHTML = "";
+
+        let filter = document.getElementById("filterRating").value;
+        let sortOrder = document.getElementById("sortOrder").value;
         
         let filteredReviews = filter === "all" ? reviews : reviews.filter(r => r.rating == filter);
-        
-        filteredReviews.forEach(review => {
+        if (sortOrder === "oldest") {
+            filteredReviews.reverse();
+        }
+
+        filteredReviews.forEach((review, index) => {
             let stars = "★".repeat(review.rating) + "☆".repeat(5 - review.rating);
             let reviewItem = document.createElement("div");
             reviewItem.classList.add("review-item");
             reviewItem.innerHTML = `
                 <span class="rating-display">${stars}</span><br>
                 <p>${review.reviewText}</p>
+                <span class="date">Reviewed on: ${review.date}</span>
+                <div class="like-dislike">
+                    <button onclick="likeReview(${index})">👍 ${review.likes}</button>
+                    <button onclick="dislikeReview(${index})">👎 ${review.dislikes}</button>
+                </div>
             `;
             reviewList.appendChild(reviewItem);
         });
     }
-    
-    function filterReviews() {
-        let filterValue = document.getElementById("filterRating").value;
-        displayReviews(filterValue);
+
+    function likeReview(index) {
+        let reviews = JSON.parse(localStorage.getItem("websiteReviews"));
+        reviews[index].likes++;
+        localStorage.setItem("websiteReviews", JSON.stringify(reviews));
+        displayReviews();
     }
-    
-    window.onload = () => displayReviews();
+
+    function dislikeReview(index) {
+        let reviews = JSON.parse(localStorage.getItem("websiteReviews"));
+        reviews[index].dislikes++;
+        localStorage.setItem("websiteReviews", JSON.stringify(reviews));
+        displayReviews();
+    }
+
+    window.onload = displayReviews;
 </script>
 </body>
 </html>
