@@ -344,16 +344,19 @@
         });
     }
 </script>
-<div class="tab-container">
+<script>
+    function openTab(index) {
+        document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+    }
 
-    <button tabindex="0">Main Tab</button> 
-  
-    <button tabindex="1">Second Tab</button> 
-  
-    <button tabindex="2">Third Tab</button> 
-  
-</div>
-
+    // Open the first tab by default when the page loads
+    document.addEventListener("DOMContentLoaded", function() {
+        openTab('index');
+    });
+</script>
+</body>
+</html>
 </body>
 </html>
 
