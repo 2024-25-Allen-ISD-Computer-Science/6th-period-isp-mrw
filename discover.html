@@ -181,13 +181,21 @@
         </ul>
     </div>
 
-    <div class="discover-section">
-        <h2>Creator's Recommendation (Isabella)</h2>
+  <div class="discover-section">
+    <h2>Creator's Recommendation</h2>
+    <label for="creator-select">Choose a creator:</label>
+    <select id="creator-select" onchange="updateCreatorRecommendation()">
+        <option value="isabella">Isabella</option>
+        <option value="kiki">Kiki</option>
+        <option value="angela">Angela</option>
+    </select>
+
+    <div id="isabella" class="creator-recommendation">
         <h3>Top 3 Favorite Artists:</h3>
         <ul>
-            <li><a href ="https://open.spotify.com/artist/35l9BRT7MXmM8bv2WDQiyB" class="artist-spotify">Beabadobee</a></li>
-            <li><a href = "https://open.spotify.com/artist/75klPfIVnyYcyEGaicRUSF" class = "artist-spotify">White Reaper</a></li>
-            <li><a href = "https://open.spotify.com/artist/6meTcQ79DrfkIuSLPZkpBg" class = "artist-spotify">The Story So Far</a></li>
+            <li><a href="https://open.spotify.com/artist/35l9BRT7MXmM8bv2WDQiyB" class="artist-spotify">Beabadobee</a></li>
+            <li><a href="https://open.spotify.com/artist/75klPfIVnyYcyEGaicRUSF" class="artist-spotify">White Reaper</a></li>
+            <li><a href="https://open.spotify.com/artist/6meTcQ79DrfkIuSLPZkpBg" class="artist-spotify">The Story So Far</a></li>
         </ul>
         <h3>Top 3 Favorite Songs:</h3>
         <ul>
@@ -198,30 +206,28 @@
         <a href="https://open.spotify.com/user/2clo8rd488d5ffjdhdyyga73y?si=be697ba8f077497b" class="spotify-link" target="_blank">Spotify Link</a>
     </div>
 
-    <div class="discover-section">
-        <h2>Creator's Recommendation (Kristel)</h2>
+    <div id="kiki" class="creator-recommendation" style="display: none;">
         <h3>Top 3 Favorite Artists:</h3>
         <ul>
-            <li><a href = "https://open.spotify.com/artist/1HY2Jd0NmPuamShAr6KMms" class = "artist-spotify">Lady Gaga</a></li>
-            <li><a href = "https://open.spotify.com/artist/26dSoYclwsYLMAKD3tpOr4" class = "artist-spotify">Britney Spears</a></li>
-            <li><a href = "https://open.spotify.com/artist/74KM79TiuVKeVCqs8QtB0B" class = "artist-spotify">Sabrina Carpenter</a></li>
+            <li><a href="https://open.spotify.com/artist/1HY2Jd0NmPuamShAr6KMms" class="artist-spotify">Lady Gaga</a></li>
+            <li><a href="https://open.spotify.com/artist/26dSoYclwsYLMAKD3tpOr4" class="artist-spotify">Britney Spears</a></li>
+            <li><a href="https://open.spotify.com/artist/74KM79TiuVKeVCqs8QtB0B" class="artist-spotify">Sabrina Carpenter</a></li>
         </ul>
         <h3>Top 3 Favorite Songs:</h3>
         <ul>
             <li>Telephone - Lady Gaga</li>
-            <li> Get Back - Britney Spears</li>
-            <li> Long Way 2 Go - Cassie</li>
+            <li>Get Back - Britney Spears</li>
+            <li>Vanish into You - Lady Gaga</li>
         </ul>
         <a href="https://open.spotify.com/user/0e0rabqil3fcs5bdmg26q6kzs?si=d0b96a8d3f97449b" class="spotify-link" target="_blank">Spotify Link</a>
     </div>
 
-    <div class="discover-section">
-        <h2>Creator's Recommendation (Angela)</h2>
+    <div id="angela" class="creator-recommendation" style="display: none;">
         <h3>Top 3 Favorite Artists:</h3>
         <ul>
-            <li><a href = "https://open.spotify.com/artist/2dIgFjalVxs4ThymZ67YCE" class = "artist-spotify">Stray Kids</a></li>
-            <li><a href = "https://open.spotify.com/artist/7gW0r5CkdEUMm42w9XpyZO" class = "artist-spotify">Laufey</a></li>
-            <li><a href = "https://open.spotify.com/artist/5t5FqBwTcgKTaWmfEbwQY9" class = "artist-spotify">Enhypen</a></li>
+            <li><a href="https://open.spotify.com/artist/2dIgFjalVxs4ThymZ67YCE" class="artist-spotify">Stray Kids</a></li>
+            <li><a href="https://open.spotify.com/artist/7gW0r5CkdEUMm42w9XpyZO" class="artist-spotify">Laufey</a></li>
+            <li><a href="https://open.spotify.com/artist/5t5FqBwTcgKTaWmfEbwQY9" class="artist-spotify">Enhypen</a></li>
         </ul>
         <h3>Top 3 Favorite Songs:</h3>
         <ul>
@@ -231,8 +237,22 @@
         </ul>
         <a href="https://open.spotify.com/user/31jndeer3rn5q6cjjgbekklnrsuu?si=cd4dee9bd18341d1" class="spotify-link" target="_blank">Spotify Link</a>
     </div>
-
 </div>
+
+<script>
+    function updateCreatorRecommendation() {
+        const selectedCreator = document.getElementById("creator-select").value;
+
+        // This will hide the other recommendations when they aren't being shown!
+        document.querySelectorAll(".creator-recommendation").forEach(div => {
+            div.style.display = "none";
+        });
+
+        // This will show the specific creator's recommendations based off drop down selection.
+        document.getElementById(selectedCreator).style.display = "block";
+    }
+</script>
+
 
 <footer>
     <p>&copy; 2025 Discover New Music. All rights reserved.</p>
