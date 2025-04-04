@@ -17,6 +17,10 @@
             color: #332129;
             padding: 20px;
             text-align: center;
+            img {
+                width: 150px;
+                height:150px;
+            }
         }
         nav {
             background-color: #F5DCE0;
@@ -47,7 +51,16 @@
             padding: 20px;
             box-shadow: 0 4px 8px #EFCFD4;
             margin-bottom: 20px;
-            display: none; /* Hide by default */
+            display: none; 
+            position: fixed; 
+            top: 50%;
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            z-index: 1000; 
+            width: 80%; 
+            max-width: 500px; 
+            max-height: 80%; 
+            overflow-y: auto; 
         }
         .genre-section h2 {
             margin-top: 0;
@@ -82,6 +95,7 @@
 
 <header>
     <h1>⋆｡‧˚ʚ🍓ɞ˚‧｡⋆ Music Genres ⋆｡‧˚ʚ🍒ɞ˚‧｡⋆</h1>
+    <img src="https://i.pinimg.com/736x/ec/ac/38/ecac3816620b091f3274e558e21028af.jpg" alt="Logo">
 </header>
 
 <nav>
